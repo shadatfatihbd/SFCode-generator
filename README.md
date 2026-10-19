@@ -1,165 +1,135 @@
-# SFCode Studio
-> **by SFCode - Shadat Fatih Code**  
-> *Create. Customize. Connect.*
+SFCode Studio
 
-An industrial-grade, Apple-inspired, privacy-first QR Code & Barcode Generator, Design Lab, Smart Scanner, and Batch Production Studio built with React 19, TypeScript, Vite, Tailwind CSS, `bwip-js`, `qrcode`, `@zxing/browser`, and `jsPDF`.
+by SFCode - Shadat Fatih Code
 
----
+Create. Customize. Connect.
 
-## 🌟 Key Features
+SFCode Studio is an all-in-one QR Code and Barcode Generator designed with a premium, minimalist, Apple-inspired interface. Create, customize, scan, and export codes using a responsive platform built for web and mobile users.
 
-### 1. Universal QR Code Generator
-- **Supported Payloads**:
-  - Plain Text & Raw Structured Data
-  - Website URLs (`https://...`)
-  - Email Addresses with pre-filled subject and body (`mailto:`)
-  - Telephone Numbers (`tel:`)
-  - SMS Messages with pre-filled text (`sms:`)
-  - Wi-Fi Network Credentials (`WIFI:S:ssid;T:type;P:password;H:hidden;;`)
-  - Full vCard 3.0 Contact Cards (Name, Org, Title, Tel, Email, URL, Address)
-  - Social Profiles (X/Twitter, Instagram, LinkedIn, GitHub, YouTube, Facebook, Telegram)
-  - Geographic Coordinates (`geo:lat,lng?q=query`)
-  - Calendar Events (iCalendar `BEGIN:VEVENT`)
-  - Payments (UPI `upi://pay`, PayPal.me, Custom Crypto/Web3)
-  - Hosted Image / File URLs (with architectural note clarifying binary QR payload limits)
-- **Live Preview & Validation**: Real-time error messages, character counter, and ISO/IEC 18004 compliance.
-- **Error Correction Levels**: Low (7%), Medium (15%), Quartile (25%), High (30%).
+✨ Features
 
-### 2. Barcode Generator (`bwip-js`)
-- **Supported Formats**:
-  - `Code 128`: Universal high-density ASCII & logistics
-  - `EAN-13`: International retail GTIN-13 with automatic Modulo-10 checksum validation
-  - `EAN-8`: Compact retail packaging GTIN-8
-  - `UPC-A`: North American retail GTIN-12
-  - `UPC-E`: Zero-suppressed 8-digit compact UPC
-  - `Code 39`: Alphanumeric industrial standard
-  - `ITF-14`: Interleaved 2 of 5 for corrugated shipping cartons
-  - `Codabar`: Libraries, blood banks, and air freight
-  - `GS1-128`: Structured enterprise logistics with Application Identifiers
-  - `Data Matrix`: High-density 2D matrix for healthcare and micro-electronics
-  - `PDF417`: Stacked 2D barcode for boarding passes and ID badges
-- **Controls**: Human-readable text toggle, barcode height, module scale, custom colors, product caption, SKU, and price tag.
-- **GS1 Reference**: Explicit guidelines on commercial GTIN registration.
+- QR Code Generator — Generate QR codes from text, URLs, Wi-Fi credentials, contact information, email, phone numbers, and other supported content.
+- Barcode Generator — Create supported barcode formats, including Code 128, Code 39, EAN-13, EAN-8, UPC-A, ITF, and Codabar.
+- QR Design Studio — Customize colors, patterns, frames, captions, and logos where supported.
+- Smart Scanner — Scan QR codes and supported barcodes using a camera or uploaded image.
+- Export Center — Download generated codes as PNG and PDF.
+- Batch Generator — Create multiple codes from supported input formats.
+- History & Favorites — Organize and revisit previously generated codes.
+- Bilingual Interface — English and Bengali language support.
+- Light & Dark Themes — Choose your preferred appearance.
+- Responsive Design — Designed for desktop, tablet, and mobile screens.
+- Privacy-Focused — Core code generation can run locally without requiring an account.
 
-### 3. Design Lab with Live Scan Reliability Decoder Test
-- **Module Patterns**: Classic Squares, Rounded Squircles, Circular Dots, Classy Diamonds, Fluid Blobs.
-- **Finder Eye Patterns**: Classic Square, Rounded Ring, Circle Ring, Leaf Asymmetric.
-- **Colors & Gradients**: Solid HEX inputs, Curated Apple Palettes, Linear Gradients (with angle control), Radial Gradients, and Transparent Backgrounds.
-- **Center Logo Upload**: Custom PNG/SVG/JPEG logo upload with scale ratio, margin padding, and circular mask. Automatically elevates error correction to High (H: 30%) to guarantee readability.
-- **Outer Frames & Banners**: Top Banner, Bottom Banner ("SCAN ME", "VISIT WEBSITE", "CONNECT TO WI-FI", "SAVE CONTACT", custom text) with independent frame colors.
-- **Real-Time In-Browser Decoder Verification**: Feeds the styled canvas into the `@zxing/browser` engine in real time, calculating an exact Scan Reliability Score (e.g. 98/100) and warning if contrast is too low for physical camera sensors.
+Feature availability depends on the implemented application version.
 
-### 4. Smart Scanner
-- **Dual Input Modes**: Device camera video feed or instant image file drag-and-drop.
-- **Camera Controls**: Rear/Front camera switching, start/stop/retry, and flashlight/torch toggle (on supported devices).
-- **Safety First**: External web URLs are never automatically opened without explicit user confirmation.
-- **Smart Actions**: One-click copy, Web Share API, vCard downloader, Wi-Fi credential view, dialer, and maps integration.
-- **Web Audio Feedback**: Pleasing iOS-style affirmative chirp upon successful decode.
+🎨 Design Philosophy
 
-### 5. Batch Production Studio
-- **Input Methods**: Multi-line paste or CSV file upload (`payload, title, sku, price`).
-- **Row-by-Row Validation**: Live table detailing row number, input, status, and error message.
-- **Export Options**: Individual PNG downloads or a single ZIP archive containing all rendered PNG images and a `manifest.csv` index.
+SFCode Studio combines simplicity, clarity, and functionality through an original Apple-inspired visual language.
 
-### 6. Local History & Favorites (IndexedDB via `idb`)
-- **Zero Cloud Uploads**: Payloads, passwords, and scanned results remain strictly in browser storage.
-- **Full Control**: Live search, type filtering, duplicate, rename, favorite, delete, and clear all.
-- **Data Portability**: Full JSON database backup export and restore.
+- Minimalist layouts and generous whitespace
+- Refined typography and rounded surfaces
+- Clean navigation and intuitive controls
+- Accessible color contrast
+- Responsive components and subtle animations
 
-### 7. Dual Localization: English & বাংলা (Bengali)
-- Instant toggle between English and Bengali with Noto Sans Bengali font support.
-- Complete translations across navigation, forms, error messages, and dialogs.
+SFCode Studio is an independent project and is not affiliated with Apple Inc.
 
-### 8. Progressive Web App (PWA) & Android Capacitor
-- Service worker caching for full offline generation capability.
-- In-app install banner with Chromium `beforeinstallprompt` handling and guided iOS Safari instructions.
-- Pre-configured `capacitor.config.ts` for export to Android Studio.
+🛠️ Technology Stack
 
----
+The application is designed to use the following technologies, depending on the implemented project configuration:
 
-## 🛠️ Development & Build
+- React
+- TypeScript
+- Vite
+- QR code generation libraries
+- Barcode generation and scanning libraries
+- PDF and PNG export utilities
+- IndexedDB for local history
+- Progressive Web App (PWA) support
 
-### Prerequisites
-- Node.js 18+ (tested on v22)
-- npm or bun
+🚀 Getting Started
 
-### Setup & Run
-```bash
-# Install dependencies
+Prerequisites
+
+- Node.js LTS
+- npm
+- Git
+
+Installation
+
+Clone the repository:
+
+git clone YOUR_REPOSITORY_URL
+
+Navigate to the project directory:
+
+cd YOUR_PROJECT_DIRECTORY
+
+Install dependencies:
+
 npm install
 
-# Start development server
+Start the development server:
+
 npm run dev
-```
 
-### Production Build
-```bash
-# Build production bundle
+Production Build
+
+Build the application:
+
 npm run build
-```
+
+Preview the production build:
+
+npm run preview
+
+The production output is typically generated in the "dist/" directory.
+
+🌐 Deployment
+
+SFCode Studio can be deployed to a compatible static hosting provider.
+
+For GitHub Pages deployment:
+
+1. Configure the correct base path in "vite.config.ts".
+2. Add a GitHub Actions workflow in ".github/workflows/".
+3. Configure the repository's Pages source and deployment permissions.
+4. Push the configured workflow to the default branch.
+5. Verify the build and deployment in the GitHub Actions tab.
+
+For a repository-based GitHub Pages URL, the Vite base path generally needs to match the repository name. A custom domain or root-level Pages site may require a different configuration.
+
+🔐 Privacy & Security
+
+- Do not upload private data unnecessarily.
+- Do not automatically open untrusted URLs detected by the scanner.
+- Request camera permissions only when needed.
+- Keep sensitive payloads local whenever possible.
+- Validate inputs before generating codes.
+- Use HTTPS for camera access in supported browsers.
+
+♿ Accessibility
+
+The project aims to support keyboard navigation, readable typography, sufficient color contrast, responsive layouts, and reduced-motion preferences.
+
+📋 Project Status
+
+Development status: Active development.
+
+Features should be considered complete only after their implementation and functionality have been tested.
+
+👨‍💻 Developer
+
+SFCode - Shadat Fatih Code
+
+Product: SFCode Studio
+
+Tagline: Create. Customize. Connect.
+
+📄 License
+
+Choose and add an appropriate open-source license before distributing this project publicly. Until a license is added, standard copyright restrictions apply.
 
 ---
 
-## 📱 Capacitor Android Packaging Guide
-
-To package SFCode Studio as a native Android APK or Google Play App Bundle:
-
-```bash
-# 1. Build the production web bundle
-npm run build
-
-# 2. Install Capacitor core and Android platform
-npm install @capacitor/core @capacitor/cli @capacitor/android
-
-# 3. Add Android platform
-npx cap add android
-
-# 4. Copy and synchronize the web dist files into Android project
-npx cap copy
-npx cap sync
-
-# 5. Open in Android Studio
-npx cap open android
-```
-
-In Android Studio:
-1. Wait for Gradle build to finish.
-2. Ensure Camera permission is declared in `android/app/src/main/AndroidManifest.xml`:
-   ```xml
-   <uses-permission android:name="android.permission.CAMERA" />
-   <uses-feature android:name="android.hardware.camera" android:required="false" />
-   ```
-3. Run on a connected physical Android device or emulator, or select **Build > Generate Signed Bundle / APK**.
-
----
-
-## 📋 Feature Checklist & QA Verification
-
-| Feature Area | Status | Verification Details |
-|---|---|---|
-| **QR Plain Text, URL, Email, Phone, SMS** | ✅ Complete | RFC compliant payloads generated and rendered cleanly |
-| **QR Wi-Fi with Encryption & Hidden Flag** | ✅ Complete | Standard `WIFI:S:..;T:..;P:..;;` format verified |
-| **QR vCard 3.0** | ✅ Complete | Generates multi-field vCards with Name, Org, Tel, Email |
-| **QR Social, Geo, Event, Payment** | ✅ Complete | Validated coordinate links, iCal VEVENT, and UPI URIs |
-| **QR Hosted Image Explanation** | ✅ Complete | Educational banner explaining binary storage limits |
-| **QR Custom Dots & Finder Eyes** | ✅ Complete | Squares, dots, rounded, classy diamonds, fluid blobs |
-| **Center Logo Upload & Masking** | ✅ Complete | Circular mask, margin padding, auto-elevation to High EC |
-| **Live Scan Reliability Tester** | ✅ Complete | In-browser ZXing decoding loop testing real-time readability |
-| **Barcode 1D (Code 128, Code 39, ITF-14, Codabar)** | ✅ Complete | Powered by bwip-js with alphanumeric validation |
-| **Barcode Retail (EAN-13, EAN-8, UPC-A, UPC-E)** | ✅ Complete | Automatic Modulo-10 checksum validation & calculation |
-| **Barcode 2D (Data Matrix, PDF417, GS1-128)** | ✅ Complete | High-density 2D formats rendered on canvas |
-| **GS1 Registration Advisory** | ✅ Complete | Clear notice that commercial GTINs require GS1 licensing |
-| **Smart Camera Scanner** | ✅ Complete | Camera stream, rear-camera preference, device switcher |
-| **Torch / Flashlight Toggle** | ✅ Complete | Checks `torch` constraint capability before toggling |
-| **Image File Drag-and-Drop Scanner** | ✅ Complete | Uploads & decodes PNG, JPG, WebP images instantly |
-| **Safe Link Confirmation Dialog** | ✅ Complete | Warns before opening untrusted external URLs |
-| **High-Res PNG & Vector PDF Export** | ✅ Complete | 1x, 2x, 4x scaling and jsPDF print document output |
-| **Batch Studio (Paste & CSV)** | ✅ Complete | Row-by-row status, sample CSV, and ZIP + manifest |
-| **IndexedDB Local Storage** | ✅ Complete | Powered by `idb` with backup JSON export & import |
-| **English & বাংলা Localization** | ✅ Complete | Full dictionary switch with Noto Sans Bengali typography |
-| **PWA Install & Offline Mode** | ✅ Complete | Service worker, manifest, and in-app install buttons |
-| **Capacitor Android Config** | ✅ Complete | Configured in `capacitor.config.ts` |
-
-### Note on Physical Device Testing
-- **Torch / Flashlight**: Requires a physical mobile phone camera with hardware LED flash (desktop webcams do not have hardware torches).
-- **Camera Permissions**: Browsers require HTTPS or `localhost` to allow camera permissions.
+© SFCode - Shadat Fatih Code. All rights reserved.
