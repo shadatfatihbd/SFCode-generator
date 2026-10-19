@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Plus Jakarta Sans", "Segoe UI", Roboto, "Noto Sans Bengali", sans-serif;
+    --font-bengali: "Noto Sans Bengali", -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --color-apple-bg: #F5F5F7;
+    --color-apple-card: #FFFFFF;
+    --color-apple-text: #171719;
+    --color-apple-blue: #007AFF;
+    --color-apple-border: rgba(0, 0, 0, 0.08);
+  }
+
+  .dark {
+    --color-apple-bg: #171719;
+    --color-apple-card: #202022;
+    --color-apple-text: #F5F5F7;
+    --color-apple-blue: #0A84FF;
+    --color-apple-border: rgba(255, 255, 255, 0.1);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    letter-spacing: -0.011em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* Bengali typography enhancement */
+  html[lang="bn"] body,
+  .font-bengali {
+    font-family: var(--font-bengali);
+    letter-spacing: 0;
+  }
+
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.5);
+}
+
+/* Tabular figures for codes, metrics, prices */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Apple blur translucent panel */
+.apple-glass {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.dark .apple-glass {
+  background: rgba(26, 26, 28, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}

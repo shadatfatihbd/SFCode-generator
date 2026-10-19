@@ -1,0 +1,10 @@
+{
+  "name": "SFCode Studio",
+  "description": "Production-grade QR code & barcode generator, design lab, smart scanner, and batch studio by SFCode - Shadat Fatih Code. Create. Customize. Connect.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
