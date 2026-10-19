@@ -5,7 +5,29 @@ import {defineConfig} from 'vite';
 import {VitePWA} from 'vite-plugin-pwa';
 
 export default defineConfig(() => {
+  // Dynamically resolve base path without hardcoding or inventing repository names:
+  // 1. BASE_PATH environment variable (provided by actions/configure-pages in GitHub Actions)
+  // 2. GITHUB_REPOSITORY environment variable (auto-provided in GitHub Actions runner as 'owner/repo')
+  // 3. Fallback to '/' for local development and root-domain deployments
+  const getBasePath = (): string => {
+    if (process.env.BASE_PATH !== undefined && process.env.BASE_PATH !== '') {
+      const p = process.env.BASE_PATH;
+      return p.endsWith('/') ? p : `${p}/`;
+    }
+    if (process.env.GITHUB_REPOSITORY) {
+      const repo = process.env.GITHUB_REPOSITORY.split('/')[1];
+      if (repo && repo.toLowerCase().endsWith('.github.io')) {
+        return '/';
+      }
+      return repo ? `/${repo}/` : '/';
+    }
+    return '/';
+  };
+
+  const base = getBasePath();
+
   return {
+    base,
     plugins: [
       react(),
       tailwindcss(),
@@ -13,30 +35,30 @@ export default defineConfig(() => {
         registerType: 'autoUpdate',
         includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'icon.svg'],
         manifest: {
-          id: '/',
+          id: base,
           name: 'SFCode Studio',
           short_name: 'SFCode',
           description: 'Production-grade QR code & barcode generator by SFCode - Shadat Fatih Code',
           theme_color: '#007AFF',
           background_color: '#F5F5F7',
           display: 'standalone',
-          start_url: '/',
-          scope: '/',
+          start_url: base,
+          scope: base,
           icons: [
             {
-              src: '/pwa-192x192.png',
+              src: 'pwa-192x192.png',
               sizes: '192x192',
               type: 'image/png',
               purpose: 'any',
             },
             {
-              src: '/pwa-512x512.png',
+              src: 'pwa-512x512.png',
               sizes: '512x512',
               type: 'image/png',
               purpose: 'any',
             },
             {
-              src: '/pwa-maskable-512x512.png',
+              src: 'pwa-maskable-512x512.png',
               sizes: '512x512',
               type: 'image/png',
               purpose: 'maskable',
